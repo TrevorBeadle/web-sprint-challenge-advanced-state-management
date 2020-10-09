@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getSmurfs } from "../actions";
 import Smurfs from "./Smurfs";
+import SmurfForm from "./SmurfForm";
 
 import "./App.css";
 
@@ -19,6 +20,7 @@ class App extends Component {
         <div>Have fun!</div>
         <button onClick={this.getSmurfs}>Get Smurfs!</button>
         <Smurfs />
+        <SmurfForm />
       </div>
     );
   }

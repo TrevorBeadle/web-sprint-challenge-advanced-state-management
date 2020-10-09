@@ -45,7 +45,7 @@ export function reducer(state = initialState, action) {
     case POST_SMURFS_SUCCESS:
       return {
         ...state,
-        smurfs: [...state.smurfs, action.payload],
+        smurfs: action.payload,
         isPosting: false,
       };
 
