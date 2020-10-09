@@ -18,12 +18,19 @@ class App extends Component {
         <div>Welcome to your state management version of Smurfs!</div>
         <div>Start inside of your `src/index.js` file!</div>
         <div>Have fun!</div>
-        <button onClick={this.getSmurfs}>Get Smurfs!</button>
-        <Smurfs />
         <SmurfForm />
+        <button onClick={this.getSmurfs}>Get Smurfs!</button>
+        {this.props.isFetching ? "Fetching Smurfs..." : ""}
+        <Smurfs />
       </div>
     );
   }
 }
 
-export default connect(null, { getSmurfs })(App);
+const mapStateToProps = state => {
+  return {
+    isFetching: state.isFetching,
+  };
+};
+
+export default connect(mapStateToProps, { getSmurfs })(App);
