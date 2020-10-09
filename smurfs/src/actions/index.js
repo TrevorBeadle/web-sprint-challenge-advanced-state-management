@@ -15,3 +15,19 @@ export const getSmurfs = () => dispatch => {
       dispatch({ type: FETCH_SMURFS_FAILURE, payload: err });
     });
 };
+
+export const POST_SMURFS_START = "POST_SMURFS_START";
+export const POST_SMURFS_SUCCESS = "POST_SMURFS_SUCCESS";
+export const POST_SMURFS_FAILURE = "POST_SMURFS_FAILURE";
+
+export const postSmurfs = () => dispatch => {
+  dispatch({ type: POST_SMURFS_START });
+  axios
+    .post("http://localhost:3333/smurfs")
+    .then(res => {
+      dispatch({ type: POST_SMURFS_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: POST_SMURFS_FAILURE, payload: err });
+    });
+};
